@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface IFlexdataService {
     IFlexdataResponse getByHash(String hash);
-    List<IFlexdataResponse> getRecentlyPublicPosts();
+    List<IFlexdataResponse> getRecentPublicPosts();
     IFlexdataUrlResponse createNew(IFlexdataRequest request);
 }
