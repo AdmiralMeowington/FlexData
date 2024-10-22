@@ -1,5 +1,6 @@
 package com.flexdata.controller;
 
+import com.flexdata.api.request.IFlexdataRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -17,7 +18,7 @@ public class FlexdataController {
         return hash;
     }
     @PostMapping("/add")
-    public String add(){
+    public String add(@RequestBody IFlexdataRequest request){
         return "data";
     }
 }
