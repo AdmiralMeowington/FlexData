@@ -2,23 +2,24 @@ package com.flexdata.repository;
 
 import com.flexdata.exeptions.NotFoundFlexdataEntityException;
 import com.flexdata.model.FlexdataEntity;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
+@Repository
 public class FlexdataRepositoryLocalStorage implements IFlexdataRepository{
 
     private final Map<String,FlexdataEntity> _storageLocal = new ConcurrentHashMap<>();
     @Override
     public FlexdataEntity getByHash(String hash) {
-        FlexdataEntity pasteEntity = _storageLocal.get(hash);
-        if(pasteEntity == null){
+        FlexdataEntity flexdataEntityEntity = _storageLocal.get(hash);
+        if(flexdataEntityEntity == null){
             throw new NotFoundFlexdataEntityException("Paste not found with hash: "+hash);
         }
-        return pasteEntity;
+        return flexdataEntityEntity;
     }
 
     @Override
